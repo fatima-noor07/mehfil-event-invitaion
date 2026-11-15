@@ -1,0 +1,77 @@
+<!-- Fatima Noor 26i-3250 Se -E -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Mehfil - RSVP</title>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Invitation</a> |
+    <a href="rsvp.html">RSVP</a> |
+    <a href="details.html">Event Details</a>
+  </nav>
+
+  <h1>محفل</h1>
+  <h2>Guest Registration</h2>
+  <p>Please fill in your details below to confirm your presence at Golf Club Marquee.</p>
+
+  <br>
+
+  <form id="rsvpForm" onsubmit="submitRSVP(event)">
+    <table>
+      <tr>
+        <th>Full Name:</th>
+        <td><input type="text" id="guestName" placeholder="Enter your name" required></td>
+      </tr>
+      <tr>
+        <th>Phone Number:</th>
+        <td><input type="tel" id="guestPhone" placeholder="03XX-XXXXXXX" required></td>
+      </tr>
+      <tr>
+        <th>Number of Guests:</th>
+        <td><input type="number" id="guestCount" min="1" max="10" value="1" required></td>
+      </tr>
+      <tr>
+        <th>Attendance:</th>
+        <td>
+          <input type="radio" name="attendance" value="Joyfully Accepts" checked> Joyfully Accepts
+          <br>
+          <input type="radio" name="attendance" value="Regretfully Declines"> Regretfully Declines
+        </td>
+      </tr>
+      <tr>
+        <th>Qawali Request:</th>
+        <td><input type="text" id="kalamRequest" placeholder="Optional Kalam / Song"></td>
+      </tr>
+    </table>
+
+    <br>
+    <button type="submit">Confirm RSVP</button>
+  </form>
+
+  <h3 id="confirmationMessage"></h3>
+
+  <script>
+    function submitRSVP(event) {
+      event.preventDefault(); // Prevents the page from refreshing
+
+      let name = document.getElementById("guestName").value;
+      let count = document.getElementById("guestCount").value;
+      let status = document.querySelector('input[name="attendance"]:checked').value;
+
+      console.log("RSVP submitted by: " + name);
+
+      if (status === "Joyfully Accepts") {
+        window.alert("Shukriya " + name + "! We have reserved " + count + " seat(s) for you at Mehfil.");
+        document.getElementById("confirmationMessage").innerText = "آپ کا انتظار رہے گا، " + name + "۔";
+      } else {
+        window.alert("Thank you for letting us know, " + name + ". You will be missed!");
+        document.getElementById("confirmationMessage").innerText = "Thank you for your response, " + name + ".";
+      }
+    }
+  </script>
+
+</body>
+</html>

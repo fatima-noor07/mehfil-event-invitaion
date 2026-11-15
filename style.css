@@ -53,3 +53,36 @@ button
   margin-top: auto;
   margin-bottom: auto;
 }
+
+h3 {
+  color: maroon;
+  text-align: center;
+}
+
+nav {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+nav a {
+  color: maroon;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+th, td {
+  color: maroon;
+  padding: 8px 15px;
+  text-align: left;
+}
+
+input {
+  border: 1px solid maroon;
+  padding: 5px;
+  color: maroon;
+}
