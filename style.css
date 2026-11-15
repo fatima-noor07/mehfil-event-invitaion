@@ -86,3 +86,24 @@ input {
   padding: 5px;
   color: maroon;
 }
+
+.navbar {
+  background-color: maroon;
+  padding: 15px 0;
+  margin-bottom: 20px;
+}
+
+.navbar a {
+  color: lightpink;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 20px;
+  padding: 8px 14px;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: lightpink;
+  color: maroon;
+}
