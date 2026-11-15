@@ -1,0 +1,93 @@
+<!-- Fatima Noor 26i-3250 Se -E -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Mehfil - Event Details</title>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Invitation</a> |
+    <a href="rsvp.html">RSVP</a> |
+    <a href="details.html">Event Details</a>
+  </nav>
+
+  <h1>محفل</h1>
+  <h2>Event Guidelines & Venue</h2>
+  <p>Everything you need to know before joining us for an evening of Qawali.</p>
+
+  <br>
+
+  <table>
+    <tr>
+      <th>Dress Code:</th>
+      <td>Traditional Eastern Wear (Shalwar Kameez, Kurta, Shawls)</td>
+    </tr>
+    <tr>
+      <th>Theme Colors:</th>
+      <td>Maroon, Rose Pink, Gold, or Ivory</td>
+    </tr>
+    <tr>
+      <th>Venue Address:</th>
+      <td>Golf Club Marquee, Main Boulevard</td>
+    </tr>
+    <tr>
+      <th>Parking:</th>
+      <td>Complimentary Valet Parking at Gate 1</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <h2>Countdown to Mehfil</h2>
+  <p id="countdown" style="font-size: 20px; font-weight: bold;"></p>
+
+  <br>
+
+  <button onclick="toggleNotes()">Show / Hide Guest Etiquette</button>
+  <div id="etiquetteBox" style="display: none; margin-top: 15px;">
+    <p>• Doors open promptly at 18:00 pm.</p>
+    <p>• Dinner will be served at 19:00 pm before the Qawali begins.</p>
+    <p>• Please keep mobile phones on silent during the Qawali performance.</p>
+  </div>
+
+  <br><br>
+  <h3>آپ کا انتظار رہے گا۔</h3>
+  <button onclick="window.location.href='index.html'">Back to Invitation</button>
+
+  <script>
+    // 1. Live Countdown Timer to 20th November, 2027 at 18:00
+    const eventDate = new Date("November 20, 2027 18:00:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText =
+        days + " Days, " + hours + " Hours, " + minutes + " Minutes, " + seconds + " Seconds";
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerText = "The Mehfil has begun!";
+      }
+    }, 1000);
+
+    // 2. Show/Hide Guest Etiquette Toggle
+    function toggleNotes() {
+      let box = document.getElementById("etiquetteBox");
+      if (box.style.display === "none") {
+        box.style.display = "block";
+      } else {
+        box.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
