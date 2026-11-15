@@ -45,11 +45,41 @@
 
   <br>
 
-  <button onclick="toggleNotes()">Show / Hide Guest Etiquette</button>
+  <!-- Guest Etiquette Feature -->
+  <button onclick="toggleSection('etiquetteBox')">Show / Hide Guest Etiquette</button>
   <div id="etiquetteBox" style="display: none; margin-top: 15px;">
     <p>• Doors open promptly at 18:00 pm.</p>
     <p>• Dinner will be served at 19:00 pm before the Qawali begins.</p>
     <p>• Please keep mobile phones on silent during the Qawali performance.</p>
+  </div>
+
+  <br><br>
+
+  <!-- New Contact Information Feature -->
+  <button onclick="toggleSection('contactBox')">Show / Hide Contact Information</button>
+  <div id="contactBox" style="display: none; margin-top: 15px;">
+    <h3>Host Contact Details</h3>
+    <table>
+      <tr>
+        <th>Event Host:</th>
+        <td>Fatima Noor</td>
+      </tr>
+      <tr>
+        <th>Phone / WhatsApp:</th>
+        <td id="hostPhone">0300-1234567</td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td>mehfil.event@example.com</td>
+      </tr>
+      <tr>
+        <th>Venue Desk:</th>
+        <td>Golf Club Marquee Reception (Ext. 104)</td>
+      </tr>
+    </table>
+    <br>
+    <button onclick="copyPhone()">Copy Phone Number</button>
+    <p id="copyStatus" style="font-size: 14px; margin-top: 5px;"></p>
   </div>
 
   <br><br>
@@ -58,7 +88,7 @@
 
   <script>
     // 1. Live Countdown Timer to 20th November, 2027 at 18:00
-    const eventDate = new Date("November 20, 2026 18:00:00").getTime();
+    const eventDate = new Date("November 20, 2027 18:00:00").getTime();
 
     const timer = setInterval(function() {
       const now = new Date().getTime();
@@ -78,16 +108,24 @@
       }
     }, 1000);
 
-    // 2. Show/Hide Guest Etiquette Toggle
-    function toggleNotes() {
-      let box = document.getElementById("etiquetteBox");
+    // 2. Reusable Toggle Function for Etiquette & Contact Sections
+    function toggleSection(sectionId) {
+      let box = document.getElementById(sectionId);
       if (box.style.display === "none") {
         box.style.display = "block";
       } else {
         box.style.display = "none";
       }
     }
+
+    // 3. Copy Phone Number Feature
+    function copyPhone() {
+      let phoneText = document.getElementById("hostPhone").innerText;
+      navigator.clipboard.writeText(phoneText);
+      document.getElementById("copyStatus").innerText = "Phone number copied: " + phoneText;
+    }
   </script>
 
 </body>
 </html>
+
